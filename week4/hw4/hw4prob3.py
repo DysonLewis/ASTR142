@@ -2,6 +2,12 @@
 # Color-Magnitude Diagram for M2 using HST data
 # Data from Sarajedini et al. (2007)
 #
+#
+# (c) 2023 Michael Fitzgerald (mpfitz@ucla.edu)
+#
+# Some code for querying Vizier for catalog to construct a CMD.
+#
+
 from astroquery.vizier import Vizier
 import matplotlib.pyplot as plt
 import numpy as np
@@ -10,9 +16,9 @@ import numpy as np
 catalog_name = 'J/AJ/133/1658'  # Sarajedini et al. (2007)
 cluster_name = 'NGC7089'  # M2's NGC designation
 
-Vizier.ROW_LIMIT = 100
+# Vizier.ROW_LIMIT = 100
 # Vizier.ROW_LIMIT = 1000
-# Vizier.ROW_LIMIT = -1
+Vizier.ROW_LIMIT = -1
 
 print(f"Querying Vizier for catalog {catalog_name}...")
 
@@ -43,7 +49,7 @@ if len(result) == 0:
     # Method 2: Get the photometry table directly
     result = Vizier(row_limit=100).get_catalogs(catalog_name)
 
-# Check if got results
+# Check if we got results
 if len(result) == 0:
     print("No results found!")
 else:
@@ -65,29 +71,26 @@ else:
     print(f"Using table with {len(data)} sources")
     print(f"Columns: {data.colnames}")
     
-    # Try to identify the correct column names
-    # Common variations: Vmag/V, Imag/I, etc.
-    v_col = None
-    i_col = None
+    # Use the actual magnitude columns
+    # The catalog has Vmag, Imag, and a pre-computed V-I column
+    v_col = 'Vmag'
+    vi_col = 'V-I'
     
-    for col in data.colnames:
-        if 'Vmag' in col or col == 'V':
-            v_col = col
-        if 'Imag' in col or col == 'I':
-            i_col = col
-    
-    if v_col and i_col:
-        print(f"Using columns: {v_col} and {i_col}")
+    if v_col in data.colnames and vi_col in data.colnames:
+        print(f"Using columns: {v_col} and {vi_col}")
         
-        # Extract V magnitude and I magnitude to compute V-I color
+        # Extract V magnitude and V-I color
         vmag = data[v_col]
-        imag = data[i_col]
-        vi = vmag - imag
+        vi = data[vi_col]
         
         # Remove any masked/invalid values
-        mask = ~vmag.mask & ~imag.mask if hasattr(vmag, 'mask') else np.ones(len(vmag), dtype=bool)
-        vi = vi[mask]
-        vmag = vmag[mask]
+        if hasattr(vmag, 'mask') and hasattr(vi, 'mask'):
+            mask = ~vmag.mask & ~vi.mask
+            vi = vi[mask]
+            vmag = vmag[mask]
+        else:
+            # No masked values, use all data
+            pass
         
         print(f"\nValid sources after masking: {len(vmag)}")
         print(f"V magnitude range: {vmag.min():.2f} to {vmag.max():.2f}")
@@ -101,7 +104,7 @@ else:
         ax.scatter(vi, vmag,
                    marker='.',
                    c='k',
-                   s=1.,
+                   s=1.,  # experiment with marker size
                    alpha=0.5)
         
         # Add plot title and axes labels
@@ -121,8 +124,8 @@ else:
         plt.show()
         
         # Save the figure
-        fig.savefig('hw4prob3.pdf', dpi=300, bbox_inches='tight')
+        fig.savefig('hw4prob3.pdf', dpi=200, bbox_inches='tight')
         print("\nPlot saved as 'hw4prob3.pdf'")
     else:
-        print(f"Could not find V and I magnitude columns!")
+        print(f"Could not find Vmag and V-I columns!")
         print(f"Available columns: {data.colnames}")
