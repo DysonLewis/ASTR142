@@ -1,3 +1,9 @@
+#
+# (c) 2023 Michael Fitzgerald (mpfitz@ucla.edu)
+#
+# Some code for querying Simbad for making a target list.
+#
+
 from astroquery.simbad import Simbad
 from astropy import units as u
 from astropy.coordinates import SkyCoord
@@ -9,7 +15,7 @@ _log = logging.getLogger('hw4prob1')
 def format_target_list(target_list):
     """Query Simbad for list of identifiers; returns dictionary with RA and Dec strings"""
 
-    # Configure Simbad to return RA/DEC
+    # Configure Simbad to return RA/DEC in degrees
     custom_simbad = Simbad()
     custom_simbad.add_votable_fields('ra(d)', 'dec(d)')
 
@@ -28,17 +34,31 @@ def format_target_list(target_list):
         if n_result > 1:
             _log.warning('using first result')
 
-        # Extract RA and DEC in degrees from the custom query
+        # get RA/DEC in degrees
         ra_deg = result_table['ra'][0]
         dec_deg = result_table['dec'][0]
 
-        # Convert to SkyCoord and reformat to consistent hms/dms string
-        c = SkyCoord(ra=ra_deg*u.degree, dec=dec_deg*u.degree)
-        ra_hms, dec_dms = c.to_string('hmsdms').split(' ')
+        # build SkyCoord
+        c = SkyCoord(ra=ra_deg*u.deg, dec=dec_deg*u.deg)
 
-        target_info[target_name] = (ra_hms, dec_dms)
+        # construct sexagesimal strings with controlled precision (4 decimal places for seconds)
+        # RA: HHhMMmSS.Ss
+        ra_h = int(c.ra.hms.h)
+        ra_m = int(c.ra.hms.m)
+        ra_s = c.ra.hms.s
+        ra_str = f"{ra_h:02d}h{ra_m:02d}m{ra_s:05.4f}s"   # e.g. 12h10m55.69s
 
-    # Sort by RA
+        # DEC: +DDdMMmSS.Ss (always show sign)
+        dec_sign = '+' if c.dec.deg >= 0 else '-'
+        abs_deg = abs(int(c.dec.dms.d))
+        dec_m = int(abs(int(c.dec.dms.m)))
+        dec_s = abs(c.dec.dms.s)
+        dec_str = f"{dec_sign}{abs_deg:02d}d{dec_m:02d}m{dec_s:05.4f}s"  # e.g. +22d42m39.07s
+
+        # left-justify/pad to desired widths when storing
+        target_info[target_name] = (ra_str, dec_str)
+
+    # Sort by RA string for ordering
     target_info = dict(sorted(target_info.items(), key=lambda x: x[1]))
 
     return target_info
