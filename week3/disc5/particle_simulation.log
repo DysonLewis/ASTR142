@@ -1,0 +1,36 @@
+2025-10-14 13:46:08,497 [INFO] === Particle simulation started ===
+2025-10-14 13:46:08,497 [INFO] Initialized particle: Proton
+2025-10-14 13:46:08,497 [INFO] Initialized particle: Alpha Particle
+2025-10-14 13:46:08,497 [INFO] Initialized particle: Deuteron
+2025-10-14 13:46:08,497 [INFO] Initialized particle: Zero Mass
+2025-10-14 13:46:08,497 [INFO] Initialized particle: NaN Velocity
+2025-10-14 13:46:08,497 [INFO] Initialized particle: Bad r0 Type
+2025-10-14 13:46:08,497 [INFO] Initialized particle: Short Velocity Vector
+2025-10-14 13:46:08,497 [INFO] Initialized particle: Huge Numbers
+2025-10-14 13:46:09,200 [INFO] Integration successful for Proton
+2025-10-14 13:46:09,912 [INFO] Integration successful for Alpha Particle
+2025-10-14 13:46:10,623 [INFO] Integration successful for Deuteron
+2025-10-14 13:46:10,624 [ERROR] Error during integration for Zero Mass: float division by zero
+Traceback (most recent call last):
+  File "/home/dyson/fall25/142ASTR/week3/disc5/discussion05_activity.py", line 62, in integrate
+    k1_v = self._acceleration(v[i])
+  File "/home/dyson/fall25/142ASTR/week3/disc5/discussion05_activity.py", line 52, in _acceleration
+    return (self.q / self.m) * np.cross(v, B_FIELD)
+ZeroDivisionError: float division by zero
+2025-10-14 13:46:10,624 [WARNING] No trajectory stored for Zero Mass
+2025-10-14 13:46:11,339 [INFO] Integration successful for NaN Velocity
+2025-10-14 13:46:11,340 [ERROR] Error during integration for Bad r0 Type: could not convert string to float: np.str_('a')
+Traceback (most recent call last):
+  File "/home/dyson/fall25/142ASTR/week3/disc5/discussion05_activity.py", line 59, in integrate
+    r[0], v[0] = self.r0, self.v0
+ValueError: could not convert string to float: np.str_('a')
+2025-10-14 13:46:11,340 [WARNING] No trajectory stored for Bad r0 Type
+2025-10-14 13:46:11,340 [ERROR] Error during integration for Short Velocity Vector: could not broadcast input array from shape (2,) into shape (3,)
+Traceback (most recent call last):
+  File "/home/dyson/fall25/142ASTR/week3/disc5/discussion05_activity.py", line 59, in integrate
+    r[0], v[0] = self.r0, self.v0
+ValueError: could not broadcast input array from shape (2,) into shape (3,)
+2025-10-14 13:46:11,340 [WARNING] No trajectory stored for Short Velocity Vector
+2025-10-14 13:46:12,062 [INFO] Integration successful for Huge Numbers
+2025-10-14 13:46:12,311 [INFO] Trajectory data exported to particle_positions.csv
+2025-10-14 13:46:12,311 [INFO] === Particle simulation completed ===

@@ -1,0 +1,19 @@
+all: hw1prob2.npy
+
+# Compile the C source
+hw1prob2: hw1prob2.c
+	gcc -o hw1prob2 hw1prob2.c -lm
+
+# Run the C executable to produce .dat file and time it
+hw1prob2.dat: hw1prob2
+	@echo "Running hw1prob2..."
+	time ./hw1prob2
+
+# Run the Python script to produce .npy file and time it
+hw1prob2.npy: hw1prob2.dat hw1prob2.py
+	@echo "Running hw1prob2.py..."
+	time python3 hw1prob2.py
+	
+# Clean all generated files
+clean:
+	rm -f hw1prob2 hw1prob2.dat hw1prob2.npy

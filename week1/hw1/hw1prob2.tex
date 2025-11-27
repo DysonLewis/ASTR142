@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry} % sets all margins to 1 inch
+\usepackage{fancyvrb}
+
+\begin{document}
+
+\noindent I used the "time" command inside Makefile.p2 (run using make -f Makefile.p2) to compile the code, run both programs, and then output the runtime. Then I just copied it into a .tex and converted to .pdf.
+
+\begin{Verbatim}[fontsize=\small,fontfamily=helvet]
+Timing the C code:
+	0.25s user (CPU)
+	0.27 elapsed (stopwatch)
+
+Timing the Python code:
+	5.63s user (CPU)
+	3.98 elapsed (stopwatch)
+\end{Verbatim}
+To no surprise, C is significantly faster than Python. The Python code is slightly easier to read but both programs are so short it's easy to follow the execution order of each. I think it's a little more difficult for the C code since all the variables are pre-defined so I had to look back a few times; whereas the Python code defines the variable around the same time and uses them.\\
+
+\noindent Given that it only had to run once, I would choose Python because it’s easier; but if it needed to be run 10,000 times, I would probably write it in C.
+
+\end{document}

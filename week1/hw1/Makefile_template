@@ -1,0 +1,7 @@
+all:	hw1prob1.pdf
+
+hw1prob1:	hw1prob1.c
+	gcc FIXME
+
+hw1prob1.txt:	FIXME
+	FIXME

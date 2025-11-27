@@ -1,0 +1,58 @@
+2025-10-19 17:32:48,063 - __main__ - INFO - Running module as a script — starting tests
+2025-10-19 17:32:48,067 - __main__ - DEBUG - Generated test data and model with shape (364, 512)
+2025-10-19 17:32:48,067 - __main__ - INFO - Creating 2-panel plot
+2025-10-19 17:32:48,067 - __main__ - DEBUG - Validated data/model shape: (364, 512)
+2025-10-19 17:32:48,067 - __main__ - DEBUG - Figure layout computed for 2 panels, figsize=(6.5, 2.7683593749999997)
+2025-10-19 17:32:48,067 - __main__ - DEBUG - Computed display range: vmin=-4.703, vmax=4.954
+2025-10-19 17:32:51,434 - __main__ - DEBUG - 2-panel plot displayed successfully
+2025-10-19 17:32:51,436 - __main__ - INFO - Creating 3-panel plot
+2025-10-19 17:32:51,436 - __main__ - DEBUG - Validated data/model shape: (364, 512)
+2025-10-19 17:32:51,437 - __main__ - DEBUG - Figure layout computed for 3 panels, figsize=(6.5, 2.0455729166666665)
+2025-10-19 17:32:51,438 - __main__ - DEBUG - Computed display range: vmin=-4.703, vmax=4.954
+2025-10-19 17:32:51,438 - __main__ - DEBUG - Computed display range: vmin=-6.916, vmax=6.380
+2025-10-19 17:32:54,330 - __main__ - DEBUG - 3-panel plot displayed successfully
+2025-10-19 17:32:54,330 - __main__ - INFO - ✅ Successfully plotted valid data and model
+2025-10-19 17:32:54,331 - __main__ - INFO - Creating 2-panel plot
+2025-10-19 17:32:54,331 - __main__ - ERROR - Shape mismatch: data (364, 512), model (100, 100)
+2025-10-19 17:32:54,332 - __main__ - WARNING - Expected ValueError caught: Data and model must have the same shape
+2025-10-19 17:32:54,332 - __main__ - DEBUG - Computed display range: vmin=nan, vmax=nan
+2025-10-19 17:32:54,333 - __main__ - INFO - All logging and exception tests completed
+2025-10-19 17:34:33,227 - __main__ - line 220 - INFO - Running module as a script — starting tests
+2025-10-19 17:34:33,232 - __main__ - line 53 - DEBUG - Generated test data and model with shape (364, 512)
+2025-10-19 17:34:33,232 - __main__ - line 132 - INFO - Creating 2-panel plot
+2025-10-19 17:34:33,232 - __main__ - line 69 - DEBUG - Validated data/model shape: (364, 512)
+2025-10-19 17:34:33,232 - __main__ - line 122 - DEBUG - Figure layout computed for 2 panels, figsize=(6.5, 2.7683593749999997)
+2025-10-19 17:34:33,232 - __main__ - line 91 - DEBUG - Computed display range: vmin=-4.703, vmax=4.954
+2025-10-19 17:34:35,496 - __main__ - line 154 - DEBUG - 2-panel plot displayed successfully
+2025-10-19 17:34:35,496 - __main__ - line 161 - INFO - Creating 3-panel plot
+2025-10-19 17:34:35,496 - __main__ - line 69 - DEBUG - Validated data/model shape: (364, 512)
+2025-10-19 17:34:35,497 - __main__ - line 122 - DEBUG - Figure layout computed for 3 panels, figsize=(6.5, 2.0455729166666665)
+2025-10-19 17:34:35,498 - __main__ - line 91 - DEBUG - Computed display range: vmin=-4.703, vmax=4.954
+2025-10-19 17:34:35,499 - __main__ - line 91 - DEBUG - Computed display range: vmin=-6.916, vmax=6.380
+2025-10-19 17:34:38,076 - __main__ - line 190 - DEBUG - 3-panel plot displayed successfully
+2025-10-19 17:34:38,077 - __main__ - line 228 - INFO - Successfully plotted valid data and model
+2025-10-19 17:34:38,078 - __main__ - line 132 - INFO - Creating 2-panel plot
+2025-10-19 17:34:38,078 - __main__ - line 67 - ERROR - Shape mismatch: data (364, 512), model (100, 100)
+2025-10-19 17:34:38,078 - __main__ - line 237 - WARNING - Expected ValueError caught: Data and model must have the same shape
+2025-10-19 17:34:38,079 - __main__ - line 91 - DEBUG - Computed display range: vmin=nan, vmax=nan
+2025-10-19 17:34:38,079 - __main__ - line 251 - INFO - All logging and exception tests completed
+2025-10-19 17:37:57,698 - __main__ - line 231 - INFO - Running module as a script — starting tests
+2025-10-19 17:37:57,702 - __main__ - line 53 - DEBUG - Generated test data and model with shape (364, 512)
+2025-10-19 17:37:57,702 - __main__ - line 143 - INFO - Creating 2-panel plot
+2025-10-19 17:37:57,702 - __main__ - line 69 - DEBUG - Validated data/model shape: (364, 512)
+2025-10-19 17:37:57,702 - __main__ - line 133 - DEBUG - Figure layout computed for 2 panels, figsize=(6.5, 2.7683593749999997)
+2025-10-19 17:37:57,703 - __main__ - line 101 - DEBUG - Computed display range: vmin=-4.703, vmax=4.954
+2025-10-19 17:38:00,512 - __main__ - line 165 - DEBUG - 2-panel plot displayed successfully
+2025-10-19 17:38:00,512 - __main__ - line 172 - INFO - Creating 3-panel plot
+2025-10-19 17:38:00,512 - __main__ - line 69 - DEBUG - Validated data/model shape: (364, 512)
+2025-10-19 17:38:00,513 - __main__ - line 133 - DEBUG - Figure layout computed for 3 panels, figsize=(6.5, 2.0455729166666665)
+2025-10-19 17:38:00,514 - __main__ - line 101 - DEBUG - Computed display range: vmin=-4.703, vmax=4.954
+2025-10-19 17:38:00,515 - __main__ - line 101 - DEBUG - Computed display range: vmin=-6.916, vmax=6.380
+2025-10-19 17:38:01,440 - __main__ - line 201 - DEBUG - 3-panel plot displayed successfully
+2025-10-19 17:38:01,440 - __main__ - line 239 - INFO - Successfully plotted valid data and model
+2025-10-19 17:38:01,441 - __main__ - line 143 - INFO - Creating 2-panel plot
+2025-10-19 17:38:01,441 - __main__ - line 67 - ERROR - Shape mismatch: data (364, 512), model (100, 100)
+2025-10-19 17:38:01,442 - __main__ - line 248 - WARNING - Expected ValueError caught: Data and model must have the same shape
+2025-10-19 17:38:01,443 - __main__ - line 94 - ERROR - NaN detected in display range
+2025-10-19 17:38:01,443 - __main__ - line 258 - WARNING - Expected ValueError for display range: Cannot compute display range: array contains only NaNs
+2025-10-19 17:38:01,444 - __main__ - line 262 - INFO - All logging and exception tests completed

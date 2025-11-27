@@ -2,3 +2,8 @@
 *.zip
 *.fits
 *.FITS
+*.txt
+*.tar
+*.tar.*
+*.tar.bz2
+

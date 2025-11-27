@@ -1,0 +1,5 @@
+INFO:root:Starting order 6
+INFO:root:Loaded file: /home/dyson/fall25/142ASTR/week8/Disc15/discussion15_activity_data/WASP33_nov21_rereduced_fluxes_coadded_order_6.npy
+INFO:root:Done with /home/dyson/fall25/142ASTR/week8/Disc15/discussion15_activity_data/WASP33_nov21_rereduced_fluxes_coadded_order_6.npy
+INFO:root:Saved WASP33_nov21_processed_order6.npy
+INFO:root:Order 6 time: 0:00:00.010321
